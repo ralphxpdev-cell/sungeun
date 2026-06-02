@@ -83,7 +83,7 @@
         }
 
         .nav-links {
-            display: flex;
+            display: none;
             gap: 36px;
             list-style: none;
         }
@@ -671,22 +671,34 @@
             body { cursor: auto; }
             .cursor, .cursor-ring { display: none; }
 
-            .hero { padding-top: 120px; padding-bottom: 80px; }
+            /* Works/About/Contact → 상단 네비바 우측 */
+            nav { padding-top: 20px; padding-bottom: 20px; }
+            .nav-links { display: flex; gap: 18px; }
+            .nav-links a { font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; }
+            .hero-nav { display: none; }
+
+            /* 헤드카피 — 풀폭 차지 */
+            .hero { padding-top: 110px; padding-bottom: 72px; }
+            .hero-top { padding-right: 0; }
+            .hero h1 { font-size: clamp(26px, 7vw, 38px); line-height: 1.28; }
+            .hero-label { margin-bottom: 28px; }
+            .hero-meta { margin-top: 40px; }
 
             .hero-scroll { text-align: left; }
 
-            .works-grid { grid-template-columns: repeat(2, 1fr); }
+            /* 카드 — 1단으로 쭉 */
+            .works-grid { grid-template-columns: 1fr; gap: 12px; }
+            .card { height: 62vw; }
             .card.span-2 { grid-column: span 1; }
+            /* 모바일엔 hover가 없으니 카드 제목 상시 노출 */
+            .card-info { opacity: 1; transform: none; }
+            .card:not(.card--titled) .card-overlay { background: linear-gradient(to top, rgba(14,14,14,0.55), rgba(14,14,14,0) 55%); }
 
             .about-inner { grid-template-columns: 1fr; gap: 48px; }
 
             footer h2 { margin-bottom: 40px; }
             .footer-links { flex-wrap: wrap; gap: 20px; }
             .footer-bottom { flex-direction: column; gap: 8px; align-items: flex-start; }
-        }
-
-        @media (max-width: 480px) {
-            .works-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -698,6 +710,11 @@
 <!-- NAV -->
 <nav id="nav">
     <a href="#" class="logo">Sungeun Jun</a>
+    <ul class="nav-links">
+        <li><a href="#works">Works</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
 </nav>
 
 <!-- HERO -->
