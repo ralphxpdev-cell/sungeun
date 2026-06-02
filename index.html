@@ -690,6 +690,9 @@
             .works-grid { grid-template-columns: 1fr; gap: 12px; }
             .card { height: 62vw; }
             .card.span-2 { grid-column: span 1; }
+            /* 데모 쇼케이스는 원래 비율로 꽉 차게 — 축소 답답함 방지 */
+            .card--demo-light { height: auto; aspect-ratio: 1280 / 820; }
+            .card--demo-dark  { height: auto; aspect-ratio: 1 / 1; }
             /* 모바일엔 hover가 없으니 카드 제목 상시 노출 */
             .card-info { opacity: 1; transform: none; }
             .card:not(.card--titled) .card-overlay { background: linear-gradient(to top, rgba(14,14,14,0.55), rgba(14,14,14,0) 55%); }
